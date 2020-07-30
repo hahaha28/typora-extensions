@@ -1,0 +1,23 @@
+.out-container{
+    display: flex;
+    justify-content: center;
+}
+.files-container {
+    /*align-content: center;*/
+    /*display: flex;*/
+}
+.file-node {
+    /*margin: 18px 0;*/
+    padding: 10px 0;
+    position: relative;
+}
+.file-icon {
+    width: 20px;
+    height: 20px;
+}
+.file-name {
+    margin-left: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
