@@ -10,8 +10,6 @@
 
 `Typora`的默认文件排序是按照字母或者修改时间来排序，这个扩展可以指定特定的文件顺序
 
-如下 gif 所示：
-
-![示例gif](http://img.inaction.fun/static/21796.gif)
+[查看示例视频](screenshowts/fileOrder.mp4)
 
 > 使用该扩展，会在目录下自动生成`order.json`文件，用来记录文件顺序
