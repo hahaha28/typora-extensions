@@ -42,26 +42,26 @@ var ipc = reqnode("electron").ipcRenderer;
  * @param e
  */
 function modifyFilesOrder(e){
-    console.log("!!!!!!!!!!!!!!!!!!");
+    // console.log("!!!!!!!!!!!!!!!!!!");
     console.log(e);
     // 存储根路径
     window.localStorage.setItem("rootPath",getRootNode().path);
     // 查找并存储点击的当前路径
     const el = $(e);
-    console.log(el);
+    // console.log(el);
     let path = el.find(".file-node-title").attr('title');
     if(el.find('.fa-folder').length === 0){
         // 选中的是文件
-        console.log("是文件");
+        // console.log("是文件");
         const temp = path.split('\\');
         const len = temp[temp.length-1].length;
         path = path.substr(0,path.length-len-1);
-        console.log('path='+path);
+        // console.log('path='+path);
         window.localStorage.setItem("currentPath",path);
     }else{
         // 选中的是文件夹
-        console.log("是文件夹");
-        console.log('path='+path);
+        // console.log("是文件夹");
+        // console.log('path='+path);
         window.localStorage.setItem("currentPath",path);
     }
     //ipc 发送消息
@@ -101,9 +101,9 @@ function onClickMoveModalOKBtn(){
     const type = moveModal.attr('type');
     const path = moveModal.attr('path');
     moveModal.modal('hide')
-    console.log(val);
-    console.log(type);
-    console.log(path);
+    // console.log(val);
+    // console.log(type);
+    // console.log(path);
     if(type === 'up'){
         modifyFileOrder(path,-val);
     }else if(type === 'down'){
@@ -115,7 +115,7 @@ function onClickMoveModalOKBtn(){
  * 修改文件顺序结束时触发这个函数
  */
 ipc.on('modifyFilesOrderOver',(event,message)=>{
-    console.log('modifyFilesOrderOver')
+    // console.log('modifyFilesOrderOver')
     onInsert(); //执行这个方法用来重新加载排序
 })
 
@@ -134,10 +134,10 @@ function run() {
     $(rootNode.element).bind("DOMNodeInserted",()=>{
         // 插入后要一段时间才排序，因为元素可能还没生成
         setTimeout('onInsert()',insertDelay);
-        console.log('insert')
+        // console.log('insert')
     });
-    console.log('rootNode = ');
-    console.log(rootNode);
+    // console.log('rootNode = ');
+    // console.log(rootNode);
     generateNodeTree(rootNode);
     sort(rootNode);
 
@@ -148,15 +148,15 @@ function run() {
  * @param onAppear function(FileNode)
  */
 function getRootNodeUntilAppear(onAppear) {
-    console.log("getRootNodeUntil")
+    // console.log("getRootNodeUntil")
 
     let el = $(".file-node-root")
     if(el.length === 0){
-        console.log('el.length==0')
+        // console.log('el.length==0')
         setTimeout(getRootNodeUntilAppear,100,run);
     }else{
-        console.log('typeof onAppear')
-        console.log(typeof onAppear);
+        // console.log('typeof onAppear')
+        // console.log(typeof onAppear);
         onAppear();
     }
 }
@@ -167,7 +167,7 @@ function getRootNodeUntilAppear(onAppear) {
 function onInsert() {
     let rootNode = getRootNode();
     generateNodeTree(rootNode);
-    console.log(rootNode)
+    // console.log(rootNode)
     sort(rootNode);
 }
 
@@ -385,13 +385,13 @@ function findChildren(node) {
 
     const rootEl = node.element;
     const childrenEl = rootEl.children("div.file-node-children");
-    console.log('children element=')
-    console.log(childrenEl)
+    // console.log('children element=')
+    // console.log(childrenEl)
     const nodes = childrenEl.children();
-    console.log('children length=' + nodes.length)
+    // console.log('children length=' + nodes.length)
     var temp;
     for (let i = 0; i < nodes.length; ++i) {
-        console.log('add children')
+        // console.log('add children')
         temp = new FileNode(nodes.eq(i));
         children[i] = temp;
     }

@@ -13,3 +13,11 @@
 [查看示例视频](screenshots/fileOrder.mp4)
 
 > 使用该扩展，会在目录下自动生成`order.json`文件，用来记录文件顺序
+
+## gitbook 样式扩展
+
+这个 `gitbook`样式是我仿造`gitbook`网站的`markdown`样式，既然只是样式，为什么还要扩展文件？不是用``css`文件和字体文件就好了吗？
+
+因为`gitbook`样式中，`h2`标签的分割线在上方，`h1`标签的分割线在下方，如果`h2`紧跟在`h1`后面，`h2`的分割线就会消失（不然很难看）。而这个效果只靠`css`没法实现，所以还需要`javascript`代码。
+
+![gitbook-style-image](http://img.inaction.fun/static/33588.png)
