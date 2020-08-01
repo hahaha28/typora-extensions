@@ -12,6 +12,8 @@
 
 [查看示例视频](screenshots/fileOrder.mp4)
 
+![gif](screenshots/fileOrder-gif.gif)
+
 > 使用该扩展，会在目录下自动生成`order.json`文件，用来记录文件顺序
 
 ## gitbook 样式扩展
