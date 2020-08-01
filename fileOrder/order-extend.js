@@ -474,6 +474,9 @@ function dealOrderFile(path) {
         fs.writeFile(orderFilePath, jsonOrderData, 'utf-8', function (err) {
             if (err) {
                 console.log("文件创建失败！")
+            }else{
+                // 隐藏文件
+                hideFile(orderFilePath);
             }
         });
         return orderData;
@@ -555,6 +558,25 @@ function getDefaultFilesInfo(path) {
 
         result.splice(i, 1);
     }
+
+    // 把文件夹排在文件前面（按默认的读取顺序，一切都按字母排序）
+    let dir = [];
+    let file = [];
+    for(let i=0;i<result.length;++i){
+        if(result[i].isDir){
+            dir[dir.length] = result[i];
+        }else{
+            file[file.length] = result[i];
+        }
+    }
+    for(let i=0;i<result.length;++i){
+        if(i < dir.length){
+            result[i] = dir[i];
+        }else{
+            result[i] = file[i-dir.length];
+        }
+    }
+
     return result;
 }
 
