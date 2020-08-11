@@ -26,7 +26,7 @@ function getWriteUntilAppear(onAppear) {
 
 function dealH2() {
     let h1s = $("#write").children("h1")
-    console.log(h1s);
+    // console.log(h1s);
     for(let i=0;i<h1s.length;++i){
         let next = h1s.next();
         if(next[0].tagName === "H2"){

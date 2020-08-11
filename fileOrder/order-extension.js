@@ -33,6 +33,12 @@ var FileObject = function (path) {
     this.isDir = isDirectory(path);     // 是否是文件夹
 }
 
+/**
+ * 标记是否正在插入
+ * @type {boolean}
+ */
+var isInsert = false;
+
 // 必须用reqnode()才能导入node.js模块
 var fs = reqnode('fs'); // 读取文件用的
 var ipc = reqnode("electron").ipcRenderer;
@@ -133,11 +139,13 @@ function run() {
     let rootNode = getRootNode();
     $(rootNode.element).bind("DOMNodeInserted",()=>{
         // 插入后要一段时间才排序，因为元素可能还没生成
-        setTimeout('onInsert()',insertDelay);
-        // console.log('insert')
+        if(!isInsert){
+            setTimeout('onInsert()',insertDelay);
+            console.log('insert')
+        }
     });
-    // console.log('rootNode = ');
-    // console.log(rootNode);
+    console.log('rootNode = ');
+    console.log(rootNode);
     generateNodeTree(rootNode);
     sort(rootNode);
 
@@ -165,10 +173,11 @@ function getRootNodeUntilAppear(onAppear) {
  * 插入时执行的方法
  */
 function onInsert() {
+    isInsert = true
     let rootNode = getRootNode();
     generateNodeTree(rootNode);
-    // console.log(rootNode)
     sort(rootNode);
+    isInsert = false;
 }
 
 /**
@@ -476,7 +485,7 @@ function dealOrderFile(path) {
                 console.log("文件创建失败！")
             }else{
                 // 隐藏文件
-                hideFile(orderFilePath);
+                // hideFile(orderFilePath);
             }
         });
         return orderData;
