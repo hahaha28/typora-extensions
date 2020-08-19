@@ -75,6 +75,22 @@ function modifyFilesOrder(e){
 }
 
 /**
+ * 新建文件时触发的回调
+ */
+function onNewFile() {
+    console.log("new file");
+    // 暂停一段时间的插入检测
+    isInsert = true;
+    setTimeout(function () {
+        isInsert = false;
+    },1000);
+}
+
+function onRename(){
+
+}
+
+/**
  * 点击菜单中的 上移文件 的点击事件
  * @param e
  */
@@ -174,9 +190,9 @@ function getRootNodeUntilAppear(onAppear) {
  */
 function onInsert() {
     isInsert = true
-    let rootNode = getRootNode();
-    generateNodeTree(rootNode);
-    sort(rootNode);
+    // let rootNode = getRootNode();
+    // generateNodeTree(rootNode);
+    // sort(rootNode);
     isInsert = false;
 }
 
