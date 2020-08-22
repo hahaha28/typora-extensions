@@ -190,9 +190,9 @@ function getRootNodeUntilAppear(onAppear) {
  */
 function onInsert() {
     isInsert = true
-    // let rootNode = getRootNode();
-    // generateNodeTree(rootNode);
-    // sort(rootNode);
+    let rootNode = getRootNode();
+    generateNodeTree(rootNode);
+    sort(rootNode);
     isInsert = false;
 }
 
