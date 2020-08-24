@@ -2,6 +2,9 @@
     display: flex;
     justify-content: center;
 }
+nav {
+    margin-top: 20px;
+}
 .files-container {
     /*align-content: center;*/
     /*display: flex;*/
@@ -17,7 +20,8 @@
 }
 .file-name {
     margin-left: 6px;
-    font-weight: bold;
-    font-size: 14px;
-    font-family: "Segoe UI", "Arial", sans-serif;
+    /*font-weight: bold;*/
+    font-size: 16px;
+    /*font:12px/1.5 tahoma,arial;*/
+    /*font-family: "Segoe UI", "Arial", sans-serif;*/
 }
