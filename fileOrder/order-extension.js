@@ -86,6 +86,13 @@ function onNewFile() {
     },1000);
 }
 
+/**
+ * 新建文件夹时触发的回调
+ */
+function onNewFolder() {
+    onNewFile();
+}
+
 function onRename(){
 
 }
